@@ -1,9 +1,7 @@
-import 'package:dlx/controllers/auth_cubit/cubit.dart';
-import 'package:dlx/controllers/auth_cubit/states.dart';
-import 'package:dlx/utilities/routes.dart';
+import 'package:dlx/controllers/auth_controller.dart';
 import 'package:dlx/view/widgets/default_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import '../../utilities/colors.dart';
 
 class AuthScreen extends StatelessWidget {
@@ -11,9 +9,8 @@ class AuthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthCubit,AuthStates>(
-      listener: (context,state){},
-      builder: (context,state){
+    return Consumer<AuthController>(
+      builder: (_,model,__){
         return Scaffold(
           backgroundColor: Colors.white,
           body: SafeArea(
@@ -49,9 +46,7 @@ class AuthScreen extends StatelessWidget {
                   ),
                   const Spacer(),
                   DefaultButton(onPressed:(){
-                    AuthCubit.get(context).signInAnon().then((value) {
-                      Navigator.of(context).pushNamed(AppRoutes.homeScreenRoute);
-                    });
+                    model.signInAnon();
                   }, text: 'Anonymous Sign-in'),
                   const SizedBox(
                     height: 10,

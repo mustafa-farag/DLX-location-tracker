@@ -16,9 +16,11 @@ ThemeData theme(context) => ThemeData(
         selectedItemColor: mainColor,
       ),
       appBarTheme: AppBarTheme(
+          titleSpacing: 20,
+          elevation: 0,
           color: Colors.white,
           iconTheme: const IconThemeData(
-            color: Colors.black,
+            color: mainColor,
           ),
           titleTextStyle: Theme.of(context).textTheme.headline6),
     );
