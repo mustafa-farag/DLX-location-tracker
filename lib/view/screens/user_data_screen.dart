@@ -40,6 +40,12 @@ class UserDataScreen extends StatelessWidget {
                       ),
                       DefaultTextFormField(
                           controller: nameController,
+                          validate: (value){
+                            if(value!.isEmpty){
+                              return'this field can not be empty';
+                            }
+                            return null;
+                          },
                           type: TextInputType.text,
                           labelText: "name"),
                       const SizedBox(
@@ -47,6 +53,12 @@ class UserDataScreen extends StatelessWidget {
                       ),
                       DefaultTextFormField(
                           controller: ageController,
+                          validate: (value){
+                            if(value!.isEmpty){
+                              return'this field can not be empty';
+                            }
+                            return null;
+                          },
                           type: TextInputType.number,
                           labelText: "age"),
                       const SizedBox(
@@ -54,6 +66,12 @@ class UserDataScreen extends StatelessWidget {
                       ),
                       DefaultTextFormField(
                           controller: phoneController,
+                          validate: (value){
+                            if(value!.isEmpty){
+                              return'this field can not be empty';
+                            }
+                            return null;
+                          },
                           type: TextInputType.phone,
                           labelText: "phone"),
                       const SizedBox(
@@ -67,7 +85,7 @@ class UserDataScreen extends StatelessWidget {
                               phone: phoneController.text,
                               age: ageController.text,
                             ).then((value) {
-                              Navigator.of(context).pushNamed(AppRoutes.homeScreenRoute);
+                              Navigator.of(context).pushNamed(AppRoutes.shipmentScreenRoute);
                             });
                           }
                         },
