@@ -1,6 +1,7 @@
 import 'package:dlx/controllers/auth_controller.dart';
 import 'package:dlx/utilities/colors.dart';
-import 'package:dlx/utilities/routes.dart';
+import 'package:dlx/utilities/constant.dart';
+import 'package:dlx/view/screens/shipment_screen.dart';
 import 'package:dlx/view/widgets/default_button.dart';
 import 'package:dlx/view/widgets/default_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -40,9 +41,9 @@ class UserDataScreen extends StatelessWidget {
                       ),
                       DefaultTextFormField(
                           controller: nameController,
-                          validate: (value){
-                            if(value!.isEmpty){
-                              return'this field can not be empty';
+                          validate: (value) {
+                            if (value!.isEmpty) {
+                              return 'this field can not be empty';
                             }
                             return null;
                           },
@@ -53,9 +54,9 @@ class UserDataScreen extends StatelessWidget {
                       ),
                       DefaultTextFormField(
                           controller: ageController,
-                          validate: (value){
-                            if(value!.isEmpty){
-                              return'this field can not be empty';
+                          validate: (value) {
+                            if (value!.isEmpty) {
+                              return 'this field can not be empty';
                             }
                             return null;
                           },
@@ -66,9 +67,9 @@ class UserDataScreen extends StatelessWidget {
                       ),
                       DefaultTextFormField(
                           controller: phoneController,
-                          validate: (value){
-                            if(value!.isEmpty){
-                              return'this field can not be empty';
+                          validate: (value) {
+                            if (value!.isEmpty) {
+                              return 'this field can not be empty';
                             }
                             return null;
                           },
@@ -79,13 +80,16 @@ class UserDataScreen extends StatelessWidget {
                       ),
                       DefaultButton(
                         onPressed: () {
-                          if(formKey.currentState!.validate()){
-                            model.setUserData(
+                          if (formKey.currentState!.validate()) {
+                            model
+                                .setUserData(
                               name: nameController.text,
                               phone: phoneController.text,
                               age: ageController.text,
-                            ).then((value) {
-                              Navigator.of(context).pushNamed(AppRoutes.shipmentScreenRoute);
+                            )
+                                .then((value) {
+                              navigateAndFinish(
+                                  context, const ShipmentScreen());
                             });
                           }
                         },

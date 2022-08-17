@@ -21,6 +21,8 @@ dependencies:
   cloud_firestore: ^3.4.4
   google_maps_flutter: ^2.1.10
   geolocator: ^9.0.1
+  shortid: ^0.1.2
+  date_format: ^2.0.6
 
 dev_dependencies:
   flutter_test:

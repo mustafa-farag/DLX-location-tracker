@@ -1,12 +1,13 @@
 import 'package:dlx/controllers/database_controller.dart';
 import 'package:dlx/model/shipment.dart';
+import 'package:dlx/services/auth.dart';
 import 'package:dlx/services/location_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';
 
 class LocationController with ChangeNotifier {
   final _database = FirestoreDatabase();
-  late final Position? position;
+  late Position? position;
 
   Future<Position?> getCurrentLocation() async {
     await LocationServices.getCurrentLocation();
@@ -19,14 +20,13 @@ class LocationController with ChangeNotifier {
 
   Future<void> startShipment({
     required String shipmentId,
-    required String userId,
-    required DateTime date,
+    required String date,
   }) async {
     try {
       await _database.startShipment(
         shipmentId,
-        userId,
         Shipment(
+          id: shipmentId,
           date: date,
           longitude: position!.longitude,
           latitude: position!.latitude,
@@ -36,4 +36,5 @@ class LocationController with ChangeNotifier {
       rethrow;
     }
   }
+
 }

@@ -19,18 +19,22 @@ class AuthController with ChangeNotifier {
     }
   }
 
+
   Future<void> setUserData({
     required String name,
     required String phone,
     required String age,
   }) async {
+    final String uId = documentIdFromLocalData();
     try {
-      await _database.setUserData(UserData(
-        phone: phone,
-        age: age,
-        uid: documentIdFromLocalData(),
-        name: name,
-      ));
+      await _database.setUserData(
+        UserData(
+          phone: phone,
+          age: age,
+          uid: uId,
+          name: name,
+        ),
+      );
     } catch (e) {
       rethrow;
     }

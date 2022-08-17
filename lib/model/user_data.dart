@@ -22,10 +22,10 @@ class UserData {
     return result;
   }
 
-  factory UserData.fromMap(Map<String, dynamic> map, String documentId) {
+  factory UserData.fromMap(Map<String, dynamic>? map, String documentId) {
     return UserData(
       uid: documentId,
-      name: map['name'] ?? '',
+      name: map!['name'] ?? '',
       phone: map['phone'] ?? '',
       age: map['age'] ?? '',
     );
