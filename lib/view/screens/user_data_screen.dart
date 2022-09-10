@@ -81,13 +81,11 @@ class UserDataScreen extends StatelessWidget {
                       DefaultButton(
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
-                            model
-                                .setUserData(
+                            model.setUserData(
                               name: nameController.text,
                               phone: phoneController.text,
                               age: ageController.text,
-                            )
-                                .then((value) {
+                            ).then((value) {
                               navigateAndFinish(
                                   context, const ShipmentScreen());
                             });

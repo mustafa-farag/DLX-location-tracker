@@ -52,6 +52,7 @@ class ShipmentScreen extends StatelessWidget {
               child: Form(
                 key: formKey,
                 child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

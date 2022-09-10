@@ -1,12 +1,10 @@
-import 'package:geolocator/geolocator.dart';
-
 class Shipment {
   final String id;
   final String date;
   final double longitude;
   final double latitude;
 
-  Shipment( {
+  Shipment({
     required this.id,
     required this.date,
     required this.longitude,

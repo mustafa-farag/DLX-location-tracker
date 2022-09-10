@@ -7,7 +7,9 @@ abstract class Database {
   Future<void> setUserData(UserData userData);
 
   Future<void> startShipment(
-      String shipmentId, Shipment shipment,);
+    String shipmentId,
+    Shipment shipment,
+  );
 
   Stream<List<Shipment>> allShipmentStream(String shipmentId);
 }
@@ -24,8 +26,7 @@ class FirestoreDatabase implements Database {
   }
 
   @override
-  Future<void> startShipment(
-      String shipmentId, Shipment shipment) async {
+  Future<void> startShipment(String shipmentId, Shipment shipment) async {
     return await _service.setData(
       path: ApiPath.shipment(shipmentId),
       data: shipment.toMap(),
@@ -37,6 +38,7 @@ class FirestoreDatabase implements Database {
     return _service.collectionsStream(
       path: ApiPath.allShipment(shipmentId),
       builder: (data, shipmentId) => Shipment.fromMap(data!, shipmentId),
+      sortItem: 'date',
     );
   }
 }

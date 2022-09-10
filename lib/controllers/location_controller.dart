@@ -1,6 +1,5 @@
 import 'package:dlx/controllers/database_controller.dart';
 import 'package:dlx/model/shipment.dart';
-import 'package:dlx/services/auth.dart';
 import 'package:dlx/services/location_services.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:geolocator/geolocator.dart';

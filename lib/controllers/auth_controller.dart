@@ -19,7 +19,6 @@ class AuthController with ChangeNotifier {
     }
   }
 
-
   Future<void> setUserData({
     required String name,
     required String phone,
