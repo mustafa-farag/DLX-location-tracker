@@ -31,7 +31,10 @@ class AllShipmentScreen extends StatelessWidget {
           IconButton(
             onPressed: () {
               auth.logout().then((value) {
-                navigateAndFinish(context, const LandingScreen());
+                navigateAndFinish(
+                  context,
+                  const LandingScreen(),
+                );
               });
             },
             icon: const Icon(
@@ -54,25 +57,26 @@ class AllShipmentScreen extends StatelessWidget {
                 );
               }
               return ListView.separated(
-                  physics: const BouncingScrollPhysics(),
-                  itemBuilder: (context, index) => InkWell(
-                        onTap: () {
-                          navigateTo(
-                            context,
-                            MapScreen(
-                              longitude: shipment[index].longitude,
-                              latitude: shipment[index].latitude,
-                            ),
-                          );
-                        },
-                        child: ShipmentItem(
-                          shipment: shipment[index],
-                        ),
+                physics: const BouncingScrollPhysics(),
+                itemBuilder: (context, index) => InkWell(
+                  onTap: () {
+                    navigateTo(
+                      context,
+                      MapScreen(
+                        longitude: shipment[index].longitude,
+                        latitude: shipment[index].latitude,
                       ),
-                  separatorBuilder: (context, index) => const SizedBox(
-                        height: 15.0,
-                      ),
-                  itemCount: shipment.length);
+                    );
+                  },
+                  child: ShipmentItem(
+                    shipment: shipment[index],
+                  ),
+                ),
+                separatorBuilder: (context, index) => const SizedBox(
+                  height: 15.0,
+                ),
+                itemCount: shipment.length,
+              );
             }
             return const Center(
               child: CircularProgressIndicator(),

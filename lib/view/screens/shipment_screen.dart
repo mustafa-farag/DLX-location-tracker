@@ -28,16 +28,18 @@ class ShipmentScreen extends StatelessWidget {
             appBar: AppBar(
               title: Text(
                 "DLX",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline6!
-                    .copyWith(color: mainColor),
+                style: Theme.of(context).textTheme.headline6!.copyWith(
+                      color: mainColor,
+                    ),
               ),
               actions: [
                 IconButton(
                   onPressed: () {
                     auth.logout().then((value) {
-                      navigateAndFinish(context, const LandingScreen());
+                      navigateAndFinish(
+                        context,
+                        const LandingScreen(),
+                      );
                     });
                   },
                   icon: const Icon(
@@ -96,18 +98,26 @@ class ShipmentScreen extends StatelessWidget {
                       DefaultButton(
                         onPressed: () {
                           if (formKey.currentState!.validate()) {
-                            model.getCurrentLocation().then((value) {
-                              model.startShipment(
-                                shipmentId: idController.text,
-                                date: formatDate(
-                                    DateTime.now(), [HH, ':', nn, ':', ss],),
-                              ).then((value) {
-                                navigateTo(
-                                    context,
-                                    AllShipmentScreen(
-                                        shipmentId: idController.text));
-                              });
-                            });
+                            model.getCurrentLocation().then(
+                              (value) {
+                                model
+                                    .startShipment(
+                                  shipmentId: idController.text,
+                                  date: formatDate(
+                                    DateTime.now(),
+                                    [HH, ':', nn, ':', ss],
+                                  ),
+                                )
+                                    .then(
+                                  (value) {
+                                    navigateTo(
+                                        context,
+                                        AllShipmentScreen(
+                                            shipmentId: idController.text));
+                                  },
+                                );
+                              },
+                            );
                           }
                         },
                         text: 'Start',

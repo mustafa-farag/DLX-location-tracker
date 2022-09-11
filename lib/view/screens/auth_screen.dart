@@ -10,7 +10,7 @@ class AuthScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Consumer<AuthController>(
-      builder: (_,model,__){
+      builder: (_, model, __) {
         return Scaffold(
           backgroundColor: Colors.white,
           body: SafeArea(
@@ -25,10 +25,9 @@ class AuthScreen extends StatelessWidget {
                 children: [
                   Text(
                     'DXL',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline3!
-                        .copyWith(color: mainColor),
+                    style: Theme.of(context).textTheme.headline3!.copyWith(
+                          color: mainColor,
+                        ),
                   ),
                   const SizedBox(
                     height: 5,
@@ -45,9 +44,12 @@ class AuthScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   const Spacer(),
-                  DefaultButton(onPressed:(){
-                    model.signInAnon();
-                  }, text: 'Anonymous Sign-in'),
+                  DefaultButton(
+                    onPressed: () {
+                      model.signInAnon();
+                    },
+                    text: 'Anonymous Sign-in',
+                  ),
                   const SizedBox(
                     height: 10,
                   )

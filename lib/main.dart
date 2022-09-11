@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         ),
         Provider<Database>(
           create: (_) => FirestoreDatabase(),
-        )
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
