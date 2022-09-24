@@ -1,16 +1,12 @@
 # dlx
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+ it’s a simple location tracker app depend on driver and their locations 
+# Libraries 
+•	Provider as a state management 
+•	Firebase as a backend and firebase services [firebase auth – firebase Fire store].
+•	Used [geolocator – google maps]
+•	Used [short Id – date format]
+# Architecture
+•	MVC for implementing the project.
+# code i am proud of
+•	Landing page and explain it. 
+•	Services file and fire store part [implementing singleton design pattern].
